@@ -30,7 +30,7 @@ dtinit=.01      # initial time step (s)
 dtmax=10.       # maximum time step (s)
 dts=60.         # output time step (s)
 ts=0           # output time counter (initialized to 0)(s)
-tfin=5000.    # total running time (s)
+tfin=50000.    # total running time (s)
 
 nts=np.int(np.ceil(tfin/dts))   # number of output time steps
 
@@ -49,7 +49,7 @@ cinit=0.1        # initial sediment concentration in suspension (kg/m3)
 
 ## grid definition (vertical / "z")
 # ---------------------------------
-nz=19        # number of layers (nz U&C layers, nz+1 kz interfaces)
+nz=40       # number of layers (nz U&C layers, nz+1 kz interfaces)
 # z is located at the center of the layer
 # layer height (for linear grid spacing)
 dz=.05      # vertical grid spacing, constant (m)
@@ -75,7 +75,7 @@ s=0                     # output counter (initialized to 0)
 # netcdf output
 # Creation of Model Output object
 out = output.ModelOutput()
-l_save=True
+l_save=False
 
 if l_save:
     out.zi=zi
@@ -136,38 +136,40 @@ while tt+dt<tfin:
     # mixing length and turbulente diffusivity (calculated at layer centers)
     # z(nz) is the total water depth
     
-    lgm[1:nz]=
+    lgm[1:nz] =  vk * zi[1:nz] * np.sqrt((1-(zi[1:nz]/(dz*nz))))
     
-    kz[1:nz]=
+    kz[1:nz]= nuw + (lgm[1:nz]**2 *(abs(ua[1:nz]-ua[0:nz-1])/dz) )
     
 
     #   Time step update
     #   dynamic update of dt to account for stability criteria
     kzmax=max(kz)
-    dt=  # stability criterium when explicit formulation of diffusion process
+    dt= dtinit# stability criterium when explicit formulation of diffusion process
     
     
     tt=tt+dt
     # Momentum equation
-    forcingatt=forcing
+    forcingatt=forcing* 1*np.cos(np.pi*2/(12.4*3600) * tt)
  
     # computing diffusive fluxes, and adding boundary conditions 
     # -------------------------------------
-    kdudz[1:nz]=
+    kdudz[1:nz] = kz[1:nz] * ((ua[1:nz]-ua[0:nz-1])/dz)
     
     # surface boundary condition    
-    kdudz[nz]=
+    kdudz[nz]= 0 
     
     # bottom boundary condition   
-    kdudz[0]=  # boundary condition (kz*du/dz=tau/rho=ustar**2)
+    ustar= vk*ua[0]/np.log2(dz/(2*z0_val))
+    kdudz[0]= ustar  # boundary condition (kz*du/dz=tau/rho=ustar**2)
 
      
     # solving momentum equation
-    # -------------------------------------    
-    u[0:nz]=ua[0:nz]+dt*() 
+    # -------------------------------------   
+
+    u[0:nz] = ua[0:nz] + (forcingatt + ((kdudz[1:nz+1]-kdudz[0:nz])/dz))*dt
  
     # bed shear stress
-    ustar=  # boundary condition
+    ustar= vk*ua[0]/np.log2(dz/(2*z0_val)) # boundary condition
     
     tenfon=rhow*ustar**2
 

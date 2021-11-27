@@ -1,0 +1,10 @@
+1- z_0 = 0.001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01
+2 - z_0 = 0.0001 ; GP = 0.0001 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01
+3- z_0 = 0.001 ; GP = 0.0001 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01
+4- z_0 = 0.0001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01
+
+5- z_0 = 0.001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.001
+6 - z_0 = 0.001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01
+7- z_0 = 0.001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.1
+8- z_0 = 0.001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.5
+9- z_0 = 0.001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 1
