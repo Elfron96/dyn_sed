@@ -8,3 +8,15 @@
 7- z_0 = 0.001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.1
 8- z_0 = 0.001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.5
 9- z_0 = 0.001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 1
+
+
+10-z_0 = 0.0001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01 
+11-z_0 = 0.001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01 
+12-z_0 = 0.01 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01 
+13-z_0 = 0.1 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01 
+
+
+14-z_0 = 0.0001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01 - contrainte sin
+15-z_0 = 0.001 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01 - contrainte sin
+16-z_0 = 0.01 ; GP = 0.0005 ; 5cm resolution, hauteur totale = 2m ; dt = 0.01 - contrainte sin
+

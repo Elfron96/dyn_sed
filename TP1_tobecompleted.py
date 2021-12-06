@@ -38,7 +38,7 @@ nts=np.int(np.ceil(tfin/dts))   # number of output time steps
 # -----------------------
 slope=0.00005   # free surface slope (0.00005 or 0.00001, or 0.0001 /0.004 for waves)
 forcing=slope*grav   # if *rhow, becomes a pressure gradient
-z0_val=0.001  # bed roughness (m)
+z0_val=0.01  # bed roughness (m)
 
 
 # sediment parameters
@@ -75,7 +75,7 @@ s=0                     # output counter (initialized to 0)
 # netcdf output
 # Creation of Model Output object
 out = output.ModelOutput()
-l_save=False
+l_save=1
 
 if l_save:
     out.zi=zi
@@ -149,7 +149,8 @@ while tt+dt<tfin:
     
     tt=tt+dt
     # Momentum equation
-    forcingatt=forcing* 1*np.cos(np.pi*2/(12.4*3600) * tt)
+    # forcingatt = forcing
+    forcingatt=forcing * 1*np.cos(np.pi*2/(12.4*3600) * tt)
  
     # computing diffusive fluxes, and adding boundary conditions 
     # -------------------------------------
